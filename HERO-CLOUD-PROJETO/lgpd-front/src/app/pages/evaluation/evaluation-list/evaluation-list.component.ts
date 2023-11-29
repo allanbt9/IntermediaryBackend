@@ -19,10 +19,11 @@ export class EvaluationListComponent implements OnInit{
   evaluations: any[] = [];
 
   constructor(private evaluationService: EvaluationService, private sharedService: SharedService) { }
+  //o sharedService 
 
   async ngOnInit(): Promise<void> {
     await this.listEvaluations();
-    this.sharedService.getUsers().subscribe(user => this.userLabel = user);
+    this.sharedService.getUsers().subscribe(user => this.userLabel = user);//fazer a conversao de usuário
     this.sharedService.getCourses().subscribe(course => this.courseLabel = course);
 
   }

@@ -15,10 +15,10 @@ export class CourseListComponent implements OnInit {
 
   courses: any[] = [];
 
-  constructor(private courseService: CourseService) { }
+  constructor(private courseService: CourseService) { } //não precisa do sharedService
 
   async ngOnInit(): Promise<void> {
-    await this.listCourses();
+    await this.listCourses(); //faz uma lista de todos os cursos
 
   }
 

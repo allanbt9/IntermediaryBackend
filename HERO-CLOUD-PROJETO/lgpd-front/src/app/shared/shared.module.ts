@@ -5,6 +5,8 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
+
+//tudo oq vc for compartilhar entre os módulos do frontend vc irá colocar aqui no shared.module
 @NgModule({
   declarations: [],
   imports: [

@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from "./shared/shared.module";
+import { SharedModule } from "./shared/shared.module";//um modulo declara um serviço que é compartilhado das nossas entidades
+
 
 @NgModule({
   declarations: [

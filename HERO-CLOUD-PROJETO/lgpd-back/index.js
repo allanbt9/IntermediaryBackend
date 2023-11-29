@@ -5,14 +5,21 @@ import {router} from "./routes/router.js" //vai disponibilizar as rotas pro fron
 import sequelize from "./utils/database.js"
 import association from "./models/Association.js"
 
+import cors from "cors";
+
+
 //agora vamos ter uma função assincrona que cria e popula o BD com tabelas vazias
 const app = express(); //a nossa aplicação é gerada pelo express
 const {json, urlendcoded} = pkg;
 
 
+
+
+
 app.use(json());
 app.use(urlendcoded({extended: true}))
-
+app.use("/",router);
+app.use(cors());//
 
 //vamos ter a inicialização do sequelize antes de disponibilizarmos a nossa aplicação
 (async () => {

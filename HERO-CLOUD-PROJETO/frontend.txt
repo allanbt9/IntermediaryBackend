@@ -1,0 +1,49 @@
+index.html é a tela inicial
+
+a pasta app terá a maior parte do trabalho
+
+
+user.service.ts
+
+
+
+user list e user form vao fazer os comportamentos responsáveis pela inserção de dados na tela, como formulários e etc
+
+
+
+
+vamos instalar o módulo e a criação dos componentes das páginas dos objetos da nossa aplicação
+
+
+-form é o formulário
+
+
+-list é pra listar os dados
+
+
+routing.module é pras rotas daquela tela, pra onde ela vai levar e oq ela vai fazer
+
+
+
+comando ng build no terminal pra compilar a aplicação 
+
+ng serve é pra subir a aplicaçao e colocar disponível em uma porta
+
+na pasta page temos as configurações dos objetos especificos da nossa aplicação
+
+na pasta share nos temos tudo  compartilhado e roteado estará aqui
+
+
+e tudo oq for baseado em dependencias da aplicação estará na app.module.ts
+
+e tudo oq for de componente e detalhes de html estará na app.components.ts
+
+comandos como
+ ng generate component pages/course/course-list 
+
+criaram as pastas com os arquivos vazios: course-form, course-list, etc
+
+
+
+
+

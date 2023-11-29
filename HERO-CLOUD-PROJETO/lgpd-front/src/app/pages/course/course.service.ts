@@ -1,18 +1,19 @@
-import { ErrorHandler, Injectable } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';//pacote para tratamento de erro
 import axios from 'axios';
-import { AxiosInstance } from 'axios';
+import { AxiosInstance } from 'axios';//pra poder prover essa interação do http
 
-export interface Params {
+export interface Params { //para o angular saber que ele vai fazer esse tratamento
     [key: string]: any;
 }
 
-export interface GetOptions {
+export interface GetOptions {//para trazer tudo oq é url, paraman, data,entrada de body. 
     url: string;
-    params?: Params;
+    params?: Params;//a interrogação é pra dizer que esse atributo é opcional
     data?: any;
 }
 
-export interface ErrorResponse {
+export interface ErrorResponse {//exportar uma interface que implementa as respostas de erro
+    //3 caracteristicas principais:
     id: string;
     code: string;
     message: string;
@@ -23,12 +24,12 @@ export interface ErrorResponse {
 })
 export class CourseService {
 
-    private axiosClient: AxiosInstance;
-    private errorHandler: ErrorHandler;
+    private axiosClient: AxiosInstance;//atributo privado que irá trazer a nossa instancia
+    private errorHandler: ErrorHandler; //para trabalhar com os erros
 
-    constructor(errorHandler: ErrorHandler) {
+    constructor(errorHandler: ErrorHandler) { //
         this.errorHandler = errorHandler;
-        this.axiosClient = axios.create({
+        this.axiosClient = axios.create({ //disponibilizar esse http pro nosso backend
             timeout: 3000,
             headers: {
                 "X-Initialized-At": Date.now().toString()
@@ -36,16 +37,18 @@ export class CourseService {
             }
         });
     }
-
+    //as ações do CRUD abaixo, aquelas lá do backends
     // get
-    public async get<T> (options: GetOptions ) : Promise<T> {
+    //os metodos assincronos pra buscar os get options lá do backend, pra cada caso que tem no backend, a gente tem um compativel aqui no front
+
+    public async get<T> (options: GetOptions ) : Promise<T> { //get<T> significa que é um parametro opcional
         try {
             let axiosResponse = await this.axiosClient.request<T>({
-                method: "get",
-                url: options.url,
-                params: options.params
+                method: "get", //vai pegar do metodo get
+                url: options.url, //pegar as informações da url
+                params: options.params //e pegar os parametros
             });
-            return ( axiosResponse.data);
+            return ( axiosResponse.data); //retornar os dados armazenados nesta variável axiosResponse
         } catch (error) {
             return ( Promise.reject( this.normalizeError (error)));
         }
@@ -101,10 +104,12 @@ export class CourseService {
         this.errorHandler.handleError(error);
 
         return ({
-            id: "-1",
+            id: "-1", //-1 é usado para erro desconhecido
             code: "UnkownError",
             message: "An unexpected error occurred."
         })
     }
 
 }
+
+//toda função assincrona precisa de try-cath

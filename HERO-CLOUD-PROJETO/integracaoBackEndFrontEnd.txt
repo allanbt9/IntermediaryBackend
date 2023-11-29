@@ -1,0 +1,17 @@
+
+começar a fazer a integração
+
+
+fazer as exposiçao das rotas do backend pro frontend
+
+toda as estruturas de serviço e de controllers e repositorys já estão prontas
+
+
+service do backend e o service do frontend já estao compativeis, assim dados trasmitidos do back irão aparecer na tela do front
+
+
+os dados vem do backend
+
+precisa ter integração via serviço
+
+e o html precisa saber onde colocar, em que momento chamar e como formatar aquele dado.
